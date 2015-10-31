@@ -1,0 +1,78 @@
+script sw.cs {
+    pass ReadAlphabets:ReadAlphabets {
+    }
+    pass CheckProgram:CheckProgram {
+    }
+    pass setSpaceTimeMap:SetSpaceTimeMap {
+    }
+    pass setSpaceTimeMap:SetSpaceTimeMap {
+    }
+    pass setSpaceTimeMap:SetSpaceTimeMap {
+    }
+    pass setSpaceTimeMap:SetSpaceTimeMap {
+    }
+    pass setOrderingDimensions:SetOrderingDimensions {
+    }
+    pass print:Print {
+    }
+    pass setSpaceTimeMap:SetSpaceTimeMap {
+    }
+    pass setSpaceTimeMap:SetSpaceTimeMap {
+    }
+    pass setSpaceTimeMap:SetSpaceTimeMap {
+    }
+    pass setSpaceTimeMap:SetSpaceTimeMap {
+    }
+    pass setSpaceTimeMap:SetSpaceTimeMap {
+    }
+    pass setSpaceTimeMap:SetSpaceTimeMap {
+    }
+    pass setSpaceTimeMapForMemoryAllocation:SetSpaceTimeMapForMemoryAllocation {
+    }
+    pass setSpaceTimeMapForValueCopy:SetSpaceTimeMapForValueCopy {
+    }
+    pass setSpaceTimeMapForMemoryFree:SetSpaceTimeMapForMemoryFree {
+    }
+    pass setSpaceTimeMapForMemoryAllocation:SetSpaceTimeMapForMemoryAllocation {
+    }
+    pass setSpaceTimeMapForValueCopy:SetSpaceTimeMapForValueCopy {
+    }
+    pass setSpaceTimeMapForMemoryFree:SetSpaceTimeMapForMemoryFree {
+    }
+    pass setSpaceTimeMapForMemoryAllocation:SetSpaceTimeMapForMemoryAllocation {
+    }
+    pass setSpaceTimeMapForValueCopy:SetSpaceTimeMapForValueCopy {
+    }
+    pass setSpaceTimeMapForMemoryFree:SetSpaceTimeMapForMemoryFree {
+    }
+    pass setSpaceTimeMapForMemoryAllocation:SetSpaceTimeMapForMemoryAllocation {
+    }
+    pass setSpaceTimeMapForValueCopy:SetSpaceTimeMapForValueCopy {
+    }
+    pass setSpaceTimeMapForMemoryFree:SetSpaceTimeMapForMemoryFree {
+    }
+    pass setSpaceTimeMapForMemoryAllocation:SetSpaceTimeMapForMemoryAllocation {
+    }
+    pass setSpaceTimeMapForValueCopy:SetSpaceTimeMapForValueCopy {
+    }
+    pass setSpaceTimeMapForMemoryFree:SetSpaceTimeMapForMemoryFree {
+    }
+    pass setSpaceTimeMapForMemoryAllocation:SetSpaceTimeMapForMemoryAllocation {
+    }
+    pass setSpaceTimeMapForValueCopy:SetSpaceTimeMapForValueCopy {
+    }
+    pass setSpaceTimeMapForMemoryFree:SetSpaceTimeMapForMemoryFree {
+    }
+    pass setSpaceTimeMapForMemoryAllocation:SetSpaceTimeMapForMemoryAllocation {
+    }
+    pass setSpaceTimeMapForValueCopy:SetSpaceTimeMapForValueCopy {
+    }
+    pass setSpaceTimeMapForMemoryFree:SetSpaceTimeMapForMemoryFree {
+    }
+    pass print:Print {
+    }
+    pass generateWrapper:GenerateWrapper {
+    }
+    pass print:Print {
+    }
+}

@@ -1,0 +1,75 @@
+int similarity_function(short, short);
+
+affine sw {M,N,bM,bN | (M,N,bM,bN)>1}
+input
+	short seq_A {i,j|0<=i<M && 0<=j<bM};
+	short seq_B {i,j|0<=i<N && 0<=j<bN};
+output
+	int Aout {i,j|0<=i<M && 0<=j<bM};
+	int Bout {i,j|0<=i<N && 0<=j<bN};
+local
+	int TempA_sub {i,j,k|0<=i<M && 0<=j<N && 0<=k<bM};
+	int TempB_sub {i,j,k|0<=i<M && 0<=j<N && 0<=k<bN};
+	int TempA {i,j,k|0<=i<M && 0<=j<=N && 0<=k<bM};
+	int TempB {i,j,k|0<=i<=M && 0<=j<N && 0<=k<bN};
+	int Tempc {i,j|0<=i<M && 0<=j<N}; //Stores the diagonal element
+let
+	Tempc[i,j] = case
+		{|i==0} || {|j==0}	: 0;
+		{|i>0 && j>0}		: TempA[i,j,bM-1];
+	esac;
+
+	TempA[i,j,k]=case
+		{|j==0}	: 0;
+		{|j>0}	: TempA_sub[i,j-1,k];
+	esac;
+
+	TempB[i,j,k]=case
+		{|i==0}	: 0;
+		{|i>0}	: TempB_sub[i-1,j,k];
+	esac;
+
+	use {im,in|0<=im<M && 0<=in<N} sw_base[bM,bN] (
+		(im,in,i->im,i)@seq_A, (im,in,i->in,i)@seq_B, 
+		(im,in,i->im,in,i)@TempA, (im,in,i->im,in,i)@TempB, 
+		(im,in->im,in)@Tempc
+	) returns (TempA_sub, TempB_sub);
+	
+	Aout[i,j] = TempA[i,N,j];
+	Bout[i,j] = TempB[M,i,j];
+.
+
+affine sw_base {bM,bN | (bM,bN)>1}
+input 
+	short seq_A {i|0<=i<bM};
+	short seq_B {i|0<=i<bN};
+	int A {i|0<=i<bM};
+	int B {i|0<=i<bN};
+	int c;
+output
+	int Aout {i|0<=i<bM};
+	int Bout {i|0<=i<bN};
+local
+	int gap_penalty;
+	int Table {i,j|0<=i<bM && 0<=j<bN};
+let	
+	gap_penalty=-1;
+
+	Table[i,j] = case
+		{|i==0 && j==0}:	max(0,c+similarity_function(seq_A[i],seq_B[j]),
+									A[i]+gap_penalty, B[j]+gap_penalty
+								);
+		{|i==0 && j>0}:	max(0,B[j-1]+similarity_function(seq_A[i],seq_B[j]),
+								Table[i,j-1]+gap_penalty, B[j]+gap_penalty
+							);
+		{|i>0 && j==0}:	max(0,A[i-1]+similarity_function(seq_A[i],seq_B[j]),
+								A[i]+gap_penalty, Table[i-1,j]+gap_penalty
+							);
+		{|i>0 && j>0}:	max(0,Table[i-1,j-1]+similarity_function(seq_A[i],seq_B[j]),
+								Table[i,j-1]+gap_penalty, Table[i-1,j]+gap_penalty
+							);
+	esac;
+	
+	Aout[i] = Table[i,bN-1];
+	Bout[i] = Table[bM-1,i];
+.
