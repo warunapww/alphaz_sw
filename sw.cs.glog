@@ -69,7 +69,13 @@ script sw.cs {
     }
     pass setSpaceTimeMapForMemoryFree:SetSpaceTimeMapForMemoryFree {
     }
+    pass setOrderingDimensions:SetOrderingDimensions {
+    }
+    pass setParallel:SetParallel {
+    }
     pass print:Print {
+    }
+    pass generateScheduledCode:GenerateScheduledCode {
     }
     pass generateWrapper:GenerateWrapper {
     }

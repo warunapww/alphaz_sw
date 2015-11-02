@@ -1,10 +1,10 @@
-CFLAGS=-O3 -std=c99
+CFLAGS=-O3 -std=c99 -fopenmp
 LIBRARIES=-lm
 CC?=gcc
 OBJS = sw.o sw_base.o external_functions.o
 all: plain check
 
-debug: CFLAGS =-DDEBUG -g -Wall -Wextra -std=c99
+debug: CFLAGS =-DDEBUG -g -Wall -Wextra -std=c99 -fopenmp
 debug: all
 		
 plain: $(OBJS)
